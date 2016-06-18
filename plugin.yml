@@ -3,6 +3,6 @@ main: me.nipe.Bil.Bil
 version: 0.1
 author: mmmaaddss
 commands:
-  uc:
-    description: Ændrer spillerens navn til Undercover
+  bil:
+    description: Spawner en minecrart.
     usage: /<command>
