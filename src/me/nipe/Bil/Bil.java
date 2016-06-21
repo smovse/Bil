@@ -1,6 +1,7 @@
 package me.nipe.Bil;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
@@ -16,13 +17,11 @@ public class Bil extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("Bil plugin has been enabled");
-
     }
 
     @Override
     public void onDisable() {
         getLogger().info("Bil plugin has been disabled");
-
     }
 
     @Override
@@ -34,10 +33,13 @@ public class Bil extends JavaPlugin {
             Location eyelocation = player.getEyeLocation();
 
             // Hvilken vej vender jeg:
-            Vector vec = player.getLocation().getDirection();
+            Vector vec = eyelocation.getDirection();
 
             // Find placeringen foran mig:
             Location frontlocation = eyelocation.add(vec);
+
+            // Spawn et eller andet foran mig:
+            frontlocation.getBlock().setType(Material.RAILS);
 
             // Spawn et eller andet foran mig:
             player.getWorld().spawnEntity(frontlocation, EntityType.MINECART);
